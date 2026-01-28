@@ -57,6 +57,14 @@ Key Practices:
 These patterns help prevent issues such as double credits, orphaned records, or inconsistent balances.
 
 
+//////Scalability & Reliability Considerations
+
+Key Patterns:
+
+-Stateless service design: Requests are handled independently without reliance on in-memory session state, making the API suitable for deployment behind a load balancer and horizontal scaling.
+-Clear execution boundaries: The code distinguishes between synchronous request flows and operations that would typically be handled asynchronously (e.g. long-running or external interactions).
+-Background processing readiness: The structure allows for safe offloading of non-blocking or failure-prone tasks to background workers where appropriate.
+-Observability-friendly structure: The codebase is organized in a way that supports the addition of structured logging, metrics, and tracing without invasive refactoring.
 
 
 //////Error Handling Strategy: The API uses a centralized and consistent error-handling approach.
